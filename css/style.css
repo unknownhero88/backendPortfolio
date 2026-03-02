@@ -57,6 +57,59 @@ body {
   background: var(--bg-color);
   box-shadow: 0 0.1rem 1rem var(--shadow-color);
 }
+/* Navbar Base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background: #111;
+  color: white;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    width: 200px;
+    padding: 20px;
+    display: none;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
 
 .logo {
   font-size: 2.5rem;
