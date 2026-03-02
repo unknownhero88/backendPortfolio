@@ -57,59 +57,6 @@ body {
   background: var(--bg-color);
   box-shadow: 0 0.1rem 1rem var(--shadow-color);
 }
-/* Navbar Base */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: #111;
-  color: white;
-}
-
-.logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: white;
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* Mobile View */
-@media (max-width: 768px) {
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #111;
-    flex-direction: column;
-    width: 200px;
-    padding: 20px;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
 
 .logo {
   font-size: 2.5rem;
@@ -723,7 +670,43 @@ span {
   .navbar a:nth-child(1) {
     color: var(--main-color);
   }
+  /* ================= NAVBAR ================= */
 
+  #menu-icon {
+    font-size: 3rem;
+    display: none;
+    cursor: pointer;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    #menu-icon {
+      display: block;
+    }
+
+    .navbar {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background: var(--bg-color);
+      display: none;
+      flex-direction: column;
+      padding: 2rem;
+      box-shadow: 0 0.5rem 1rem var(--shadow-color);
+    }
+
+    .navbar.active {
+      display: flex;
+    }
+
+    .navbar a {
+      display: block;
+      margin: 1.5rem 0;
+      font-size: 2rem;
+      color: var(--text-color);
+    }
+  }
   .navbar a.active::before {
     background: var(--main-color);
     opacity: 0.7;
@@ -749,7 +732,102 @@ span {
     padding: 2rem 3%;
   }
 }
+/* ================= PROJECT GRID ================= */
 
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.project-card {
+  background: var(--bg-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px var(--shadow-color);
+  transition: 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 2rem;
+}
+
+.project-info h3 {
+  font-size: 2rem;
+  color: var(--main-color);
+  margin-bottom: 1rem;
+}
+
+.project-info p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+}
+
+.project-buttons a {
+  margin-right: 10px;
+}
+
+/* Small mobile */
+@media (max-width: 600px) {
+  .project-card img {
+    height: 180px;
+  }
+}
+@media (max-width: 768px) {
+  .home {
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 10rem;
+  }
+
+  .home-content h1 {
+    font-size: 4.2rem;
+  }
+
+  .home-content h3 {
+    font-size: 2.4rem;
+  }
+
+  .home-img img {
+    position: static;
+    max-width: 300px;
+    margin-top: 3rem;
+  }
+
+  .profession-container {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .contact form .input-box {
+    flex-direction: column;
+  }
+
+  .contact form .input-box input {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer p {
+    margin-top: 1rem;
+  }
+}
 @media (max-width: 896px) {
   .navbar a:nth-child(2) {
     color: var(--main-color);
@@ -1062,23 +1140,23 @@ img {
   margin-top: 4rem;
 }
 
-.projects-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
 .project-card {
-  flex: 1 1 300px;
-  max-width: 350px;
+  background: var(--bg-color);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px var(--shadow-color);
+  transition: 0.4s ease;
 }
 
 .project-card:hover {
   transform: translateY(-10px);
 }
 
-
+.project-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
 
 .project-info {
   padding: 2rem;
@@ -1107,15 +1185,5 @@ img {
   .project-image img {
     width: 100%;
     height: 250px;
-  }
-}
-@media (max-width: 768px) {
-  .projects-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .project-card {
-    width: 90%;
   }
 }
